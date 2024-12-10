@@ -12,8 +12,7 @@ components:
     name: todo_card_title
     properties: {font_size: null, text: To-Do List}
     type: Label
-  - data_bindings:
-    - {code: self.get_task_list(), property: items, writeback: false}
+  - data_bindings: []
     event_bindings: {show: task_panel_show}
     layout_properties: {grid_position: 'JQLYCC,XOPPQW'}
     name: task_panel

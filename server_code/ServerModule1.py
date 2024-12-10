@@ -13,11 +13,21 @@ import anvil.server
 @anvil.server.callable
 def get_task_list():
   tasks = app_tables.task.search()
-  for task in tasks:
-    print(task['check'], task['name'])
   return tasks
 
 @anvil.server.callable
 def add_task(name):
   app_tables.task.add_row(check=False, name=name)
+  return
+
+@anvil.server.callable
+def delete_task(id):
+  task = app_tables.task.get_by_id(id)
+  task.delete()  
+  return
+
+@anvil.server.callable
+def update_check(id, checked):
+  task = app_tables.task.get_by_id(id)
+  task.update(check=checked)
   return

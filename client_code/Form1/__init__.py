@@ -14,9 +14,10 @@ class Form1(Form1Template):
     self.todo_card.align = "left"
     # Any code you write here will run before the form opens.
 
-  def get_task_list(self):
-    return anvil.server.call('get_task_list')
-
+  def set_task_list(self):
+    task = anvil.server.call('get_task_list')
+    self.task_panel.items = task
+  
   def summit_buttton_click(self, **event_args):
     """This method is called when the button is clicked"""
     task = self.task_summit_text_box.text 
@@ -24,11 +25,17 @@ class Form1(Form1Template):
       return
 
     anvil.server.call('add_task', task)
+    self.set_task_list()
     self.task_summit_clear()
     return
 
   def task_summit_clear(self):
     self.task_summit_text_box.text = ""
     return
+
+  def task_panel_show(self, **event_args):
+    """This method is called when the repeating panel is shown on the screen"""
+    self.set_task_list()
+    pass
 
     
