@@ -4,7 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+from datetime import datetime
 
 class Form1(Form1Template):
   def __init__(self, **properties):
@@ -15,8 +15,11 @@ class Form1(Form1Template):
     # Any code you write here will run before the form opens.
 
   def set_task_list(self):
+    start = datetime.now()
     task = anvil.server.call('get_task_list')
     self.task_panel.items = task
+    end = datetime.now()
+    print(end - start)
   
   def summit_buttton_click(self, **event_args):
     """This method is called when the button is clicked"""
