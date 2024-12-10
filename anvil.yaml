@@ -1,4 +1,16 @@
 allow_embedding: false
+db_schema:
+  task:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: name
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: check
+      type: bool
+    server: full
+    title: task
 dependencies: []
 name: M3 App 1
 package_name: M3_App_1
