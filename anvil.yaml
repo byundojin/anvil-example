@@ -12,8 +12,9 @@ db_schema:
     server: full
     title: task
 dependencies: []
-name: M3 App 1
-package_name: M3_App_1
+metadata: {description: To-Do, logo_img: 'asset:20241206_092312.jpg', title: To-Do}
+name: To-Do
+package_name: To_Do
 renamed: true
 runtime_options:
   client_version: '3'
